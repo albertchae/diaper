@@ -8,5 +8,6 @@ module Partners
       :recoverable, :rememberable, :validatable
 
     has_many :requests, class_name: 'Partners::Request', foreign_key: :partner_id
+    belongs_to :partner
   end
 end
