@@ -32,7 +32,8 @@ Rails.application.routes.draw do
   # Add route partners/dashboard so that we can define it as partner_user_root
   get 'partners/dashboard' => 'partners/dashboards#show', as: :partner_user_root
   namespace :partners do
-    resource :dashboard
+    resource :dashboard, only: [:show]
+    resources :requests
   end
 
   # This is where a superadmin CRUDs all the things

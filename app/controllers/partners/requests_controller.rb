@@ -1,5 +1,5 @@
 module Partners
-  class DashboardsController < ApplicationController
+  class RequestsController < ApplicationController
     layout 'partners/application'
 
     protect_from_forgery with: :exception
@@ -9,14 +9,20 @@ module Partners
     skip_before_action :authorize_user
 
     def index
-    end
-
-    def show
       @partner = current_partner_user.partner
       @partner_requests = @partner.requests.order(created_at: :desc).limit(10)
-      @families = @partner.families
-      @children = @partner.children
+    end
+
+    def new
+      @partner_request = Partners::Request.new
+      @partner_request.item_requests.build
+
+      # Fetch the valid items
+      @requestable_items = Organization.find(current_partner_user.partner.diaper_bank_id).valid_items.map do |item|
+        [item[:name], item[:id]]
+      end.sort
     end
 
   end
 end
+
