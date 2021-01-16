@@ -3,7 +3,7 @@
 # Table name: partners
 #
 #  id              :integer          not null, primary key
-#  email          s :string
+#  email           :string
 #  name            :string
 #  notes           :text
 #  quota           :integer
