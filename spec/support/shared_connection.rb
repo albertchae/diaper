@@ -6,14 +6,17 @@
 # This patch allows the connection to be shared,
 # allowing you to use transactional fixtures once again.
 # https://gist.github.com/josevalim/470808#gistcomment-5426
-class ActiveRecord::Base
-  mattr_accessor :shared_connection
+#
+# This doesn't play nicely multiple Dbs
+#
+# class ActiveRecord::Base
+  # mattr_accessor :shared_connection
 
-  def self.connection
-    shared_connection || retrieve_connection
-  end
-end
+  # def self.connection
+    # shared_connection || retrieve_connection
+  # end
+# end
 
-# Forces all threads to share the same connection. This works on
-# Capybara because it starts the web server in a thread.
-ActiveRecord::Base.shared_connection = ActiveRecord::Base.connection
+# # Forces all threads to share the same connection. This works on
+# # Capybara because it starts the web server in a thread.
+# ActiveRecord::Base.shared_connection = ActiveRecord::Base.connection

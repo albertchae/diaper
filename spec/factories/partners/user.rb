@@ -4,7 +4,8 @@ FactoryBot.define do
     password { 'password' }
 
     after(:build) do |partner_user, option|
-      partner_user.partner = FactoryBot.build(:partners_partner, name: partner_user.email)
+      partner = FactoryBot.create(:partners_partner, name: partner_user.email)
+      partner_user.partner_id = partner.id
     end
   end
 end

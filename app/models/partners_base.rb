@@ -1,5 +1,5 @@
 class PartnersBase < ApplicationRecord
   self.abstract_class = true
 
-  establish_connection :partners
+  connects_to database: { writing: :partner, reading: :partner }
 end
