@@ -10,9 +10,9 @@ class RemoveDeviseColumnsFromPartner < ActiveRecord::Migration[5.2]
   end
 
   private
-  
+
   def devise_columns
-    %i[email 
+    %i[email
        encrypted_password
        reset_password_token
        reset_password_sent_at
@@ -29,7 +29,6 @@ class RemoveDeviseColumnsFromPartner < ActiveRecord::Migration[5.2]
        invitation_limit
        invited_by_type
        invited_by_id
-       invitations_count
-     ]
+       invitations_count]
   end
 end

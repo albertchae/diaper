@@ -1,5 +1,4 @@
 RSpec.describe "Authentication", type: :system, js: true do
-
   describe 'logging in as a partner user' do
     let!(:partner_user) { FactoryBot.create(:partners_user, password: password) }
     let(:password) { Faker::Alphanumeric.alpha(number: 10) }

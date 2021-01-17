@@ -22,7 +22,6 @@ module Partners
         [item[:name], item[:id]]
       end.sort
     end
-
   end
 end
 

@@ -8,8 +8,7 @@ module Partners
     skip_before_action :authenticate_user!
     skip_before_action :authorize_user
 
-    def index
-    end
+    def index; end
 
     def show
       @partner = current_partner_user.partner
@@ -17,6 +16,5 @@ module Partners
       @families = @partner.families
       @children = @partner.children
     end
-
   end
 end

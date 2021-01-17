@@ -3,7 +3,7 @@ FactoryBot.define do
     email { Faker::Internet.email }
     password { 'password' }
 
-    after(:build) do |partner_user, option|
+    after(:build) do |partner_user, _option|
       partner = FactoryBot.create(:partners_partner, name: partner_user.email)
       partner_user.partner_id = partner.id
     end

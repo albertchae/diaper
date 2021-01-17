@@ -10,11 +10,11 @@
 # This doesn't play nicely multiple Dbs
 #
 # class ActiveRecord::Base
-  # mattr_accessor :shared_connection
+# mattr_accessor :shared_connection
 
-  # def self.connection
-    # shared_connection || retrieve_connection
-  # end
+# def self.connection
+# shared_connection || retrieve_connection
+# end
 # end
 
 # # Forces all threads to share the same connection. This works on

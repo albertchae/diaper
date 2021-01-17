@@ -86,12 +86,10 @@
 #  diaper_partner_id          :integer
 #
 module Partners
-  class Partner < ApplicationRecord
-    establish_connection :partners
-
-    has_one :user
-    has_many :requests
-    has_many :families
+  class Partner < Base
+    has_one :user, dependent: :destroy
+    has_many :requests, dependent: :destroy
+    has_many :families, dependent: :destroy
     has_many :children, through: :families
 
     def verified?

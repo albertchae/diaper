@@ -27,7 +27,7 @@ module Partners
   class Family < Base
     belongs_to :partner
 
-    has_many :children
+    has_many :children, dependent: :destroy
   end
 end
 
